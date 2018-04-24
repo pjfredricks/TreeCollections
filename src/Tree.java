@@ -44,7 +44,7 @@ public class Tree
         System.out.println(ts);
     }
 
-    public void settree() {
+    public void setTree() {
         rank.put(1, "Chief Executive Officer");
         rank.put(2, "Vice President");
         rank.put(3, "Associate Vice President");
@@ -68,7 +68,7 @@ public class Tree
         Tree t = new Tree();
 
         t.getTree();
-        t.settree();
+        t.setTree();
         t.dispTree();
 
     }
