@@ -40,7 +40,7 @@ public class Tree
         }
     }
 
-    public void dispTree() {
+    public void displayTree() {
         System.out.println(ts);
     }
 
@@ -69,7 +69,7 @@ public class Tree
 
         t.getTree();
         t.setTree();
-        t.dispTree();
+        t.displayTree();
 
     }
 }
