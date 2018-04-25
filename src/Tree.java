@@ -3,6 +3,9 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.*;
 
+/*
+ * Overrides the compare method to retain insertion order
+ */
 class MyComparator implements Comparator<String> {
     public int compare(String a, String b) {
         return 1;
@@ -12,10 +15,22 @@ class MyComparator implements Comparator<String> {
 
 public class Tree
 {
-    public Map<String, String> hmap = new HashMap<String, String>();
-    public Set<String> ts = new TreeSet<String>(new MyComparator());
-    public Map<Integer, String> rank = new HashMap<Integer, String>();
+    public Map<String, String> hmap = new HashMap<>();
+    public Set<String> ts = new TreeSet<>(new MyComparator());
+    public Map<Integer, String> rank = new HashMap<>();
 
+    public static void main(String[] args) {
+        Tree t = new Tree();
+
+        t.getTree();
+        t.setTree();
+        t.displayTree();
+
+    }
+
+    /*
+     * Reads the text file and stores the name,designations in a HashMap
+     */
     public void getTree() {
         String filename = "e:/File_Tree_Input.txt";
         String line;
@@ -24,7 +39,6 @@ public class Tree
             FileReader filereader = new FileReader(filename);
             BufferedReader buffer = new BufferedReader(filereader);
             try {
-
                 while ((line = buffer.readLine()) != null) {
                     String[] split = line.split(",");
                     String name = split[0];
@@ -40,10 +54,16 @@ public class Tree
         }
     }
 
+    /*
+     * Displays the contents of the Tree
+     */
     public void displayTree() {
         System.out.println(ts);
     }
 
+    /*
+     * Compares the HashMap with a ranking HashMap and inserts into the TreeSet in ascending order of Ranking
+     */
     public void setTree() {
         rank.put(1, "Chief Executive Officer");
         rank.put(2, "Vice President");
@@ -62,14 +82,5 @@ public class Tree
                     continue;
             }
         }
-    }
-
-    public static void main(String[] args) {
-        Tree t = new Tree();
-
-        t.getTree();
-        t.setTree();
-        t.displayTree();
-
     }
 }
