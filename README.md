@@ -1,12 +1,12 @@
 # TreeCollections Ordering
 
-## The aim of this project is to override the Comparator method in Tree Object, so that the objects inserted into the Tree can be sorted in a User defined order.
+## The aim of this project is to override the Comparator method in treecollections.Tree Object, so that the objects inserted into the treecollections.Tree can be sorted in a User defined order.
 
 >> ### A set of values are read from a text file, they contain (name,designation) pairs.
 >> ### These values are stored in a hashmap as (key,value) pairs.
 >> ### The custom sorting order is stored in another hasmap as (rank,designation) pairs.
 >> ### The values are sorted based on their ranking.
->> ### They are inserted into a Tree Object in sorted order.
->> ### Tree objects contain a comparator method which automatically sorts inserted objects in ascending order.
+>> ### They are inserted into a treecollections.Tree Object in sorted order.
+>> ### treecollections.Tree objects contain a comparator method which automatically sorts inserted objects in ascending order.
 >> ### We need to override this comparator object to preserve our insertion order.
 >> ### In order to do so we implement to comparator method and set it to return true always.

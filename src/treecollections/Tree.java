@@ -1,40 +1,45 @@
+package treecollections;
+
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.*;
 
-/*
- * Overrides the compare method to retain insertion order
+/**
+ * <p>
+ * This class reads inputs from a text file and stores them into a hashmap,
+ * the stored values are then sorted based on a rank hashmap and inserted into
+ * a treecollections.Tree object, to preserve the insertion order we override the compare method
+ * to remain true for every input.
+ * </p>
+ * @author Jfredricks
+ * @version 1.0
  */
-class MyComparator implements Comparator<String> {
-    public int compare(String a, String b) {
-        return 1;
-    }
-
-}
-
 public class Tree
 {
     public Map<String, String> hmap = new HashMap<>();
     public Set<String> ts = new TreeSet<>(new MyComparator());
     public Map<Integer, String> rank = new HashMap<>();
 
+    /**
+     * Creates treecollections.Tree object and calls the methods
+     *
+     * @param args is unused
+     */
     public static void main(String[] args) {
         Tree t = new Tree();
 
         t.getTree();
         t.setTree();
         t.displayTree();
-
     }
 
-    /*
-     * Reads the text file and stores the name,designations in a HashMap
+    /**
+     * Reads the contents of a text file and stores them in a HashMap as Key,Value pairs
      */
     public void getTree() {
         String filename = "e:/File_Tree_Input.txt";
         String line;
-
         try {
             FileReader filereader = new FileReader(filename);
             BufferedReader buffer = new BufferedReader(filereader);
@@ -54,15 +59,15 @@ public class Tree
         }
     }
 
-    /*
-     * Displays the contents of the Tree
+    /**
+     * Displays the tree object
      */
     public void displayTree() {
         System.out.println(ts);
     }
 
-    /*
-     * Compares the HashMap with a ranking HashMap and inserts into the TreeSet in ascending order of Ranking
+    /**
+     * Sorts the HashMap values based on a rank HashMap and stores them in a treecollections.Tree object
      */
     public void setTree() {
         rank.put(1, "Chief Executive Officer");
@@ -77,10 +82,26 @@ public class Tree
             for (Map.Entry<String, String> m2 : hmap.entrySet()) {
                 if (m.getValue().equals(m2.getValue())) {
                     ts.add(m2.getKey());
-                    //System.out.println(m2.getKey());
                 } else
                     continue;
             }
         }
+    }
+}
+
+/**
+ * Class which overrides compare method
+ */
+class MyComparator implements Comparator<String> {
+    /**
+     * Instead of comparing two strings we just make it return true for all values
+     *
+     * @param a is some String value
+     * @param b is some String value
+     * @return true always
+     */
+    @Override
+    public int compare(String a, String b) {
+        return 1;
     }
 }
