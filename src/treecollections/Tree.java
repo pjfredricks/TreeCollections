@@ -17,13 +17,12 @@ import java.util.*;
  */
 public class Tree
 {
-    public Map<String, String> hmap = new HashMap<>();
-    public Set<String> ts = new TreeSet<>(new MyComparator());
-    public Map<Integer, String> rank = new HashMap<>();
+    Map<String, String> hmap = new HashMap<>();
+    Set<String> ts = new TreeSet<>(new MyComparator());
+    Map<Integer, String> rank = new HashMap<>();
 
     /**
      * Creates treecollections.Tree object and calls the methods
-     *
      * @param args is unused
      */
     public static void main(String[] args) {
@@ -95,7 +94,6 @@ public class Tree
 class MyComparator implements Comparator<String> {
     /**
      * Instead of comparing two strings we just make it return true for all values
-     *
      * @param a is some String value
      * @param b is some String value
      * @return true always
