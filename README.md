@@ -7,6 +7,6 @@
 >> ### The custom sorting order is stored in another hasmap as (rank,designation) pairs.
 >> ### The values are sorted based on their ranking.
 >> ### They are inserted into a treecollections.Tree Object in sorted order.
->> ### treecollections.Tree objects contain a comparator method which automatically sorts inserted objects in ascending order.
+>> ### treecollections Tree objects contain a comparator method which automatically sorts inserted objects in ascending order.
 >> ### We need to override this comparator object to preserve our insertion order.
 >> ### In order to do so we implement to comparator method and set it to return true always.
